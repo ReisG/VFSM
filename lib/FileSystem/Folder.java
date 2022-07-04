@@ -23,8 +23,16 @@ public final class Folder extends MemoryObject
         fileTree[numberOfFilesContain++] = object;
     }
 
+    public void createFile(String name, String fileContent)
+    {
+        addObject(new File(name, fileContent));
+    }
 
-    // undone
+    public void createFolder(String folderName)
+    {
+        addObject(new Folder(name));
+    }
+
     public void deleteObject(String objectName)
     {
         for (int object = 0; object < numberOfFilesContain; object++)
@@ -35,7 +43,7 @@ public final class Folder extends MemoryObject
                  * and we (right now) don't look at indexes.
                  * This was we can just move last element on deleted element position
                  */
-                fileTree[object] = fileTree[numberOfFilesContain--];
+                fileTree[object] = fileTree[numberOfFilesContain];
                 break;
             }
         }
