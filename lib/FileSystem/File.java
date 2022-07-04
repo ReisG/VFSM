@@ -1,7 +1,5 @@
 package lib.FileSystem;
 
-import lib.FileSystem.MemoryObject;
-
 public class File extends MemoryObject
 {
     private String extentention;

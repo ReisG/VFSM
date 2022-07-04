@@ -1,7 +1,5 @@
 package lib.FileSystem;
 
-import lib.FileSystem.MemoryObject;
-
 public final class Folder extends MemoryObject
 {
     static final int MaxFilesContain = 600;
@@ -51,7 +49,17 @@ public final class Folder extends MemoryObject
         throw new RuntimeException("There is no element in folder named <" + objectName + ">");
     }
 
-    public MemoryObject goToObject(String objectName)
+    public File getFile(String fileName)
+    {
+        return (File) goToObject(fileName);
+    }
+
+    public Folder goToFolder(String folderName)
+    {
+        return (Folder) goToObject(folderName);
+    }
+
+    private MemoryObject goToObject(String objectName)
     {
         for (MemoryObject object : fileTree)
         {
