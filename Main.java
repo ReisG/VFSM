@@ -7,10 +7,11 @@ public class Main
 {
     public static void main(String[] args)
     {
-        File a = new File("bob.txt", "My bad");
-        Folder fold = new Folder("root");
+        Folder root = new Folder("root");
 
-        fold.addObject(a);
-        System.out.println(Arrays.toString(fold.getNamesOfObjects()));
+        root.createFolder("users");
+        root.goToFolder("users").createFile("player.txt", "I always win");
+
+        System.out.println(root.goToFolder("users").getFile("player.txt").getContent());
     }
 }
